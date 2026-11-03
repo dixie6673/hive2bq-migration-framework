@@ -1,0 +1,4 @@
+source: hive_src.taxi_zones
+target: taxi_dw.taxi_zones
+load_type: full                 # small lookup table: full refresh each time
+numeric_columns: []

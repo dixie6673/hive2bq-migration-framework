@@ -1,0 +1,7 @@
+.venv/
+data/
+ddl/
+__pycache__/
+*.egg-info/
+.env
+*.json

@@ -1,0 +1,6 @@
+source: hive_src.yellow_trips
+target: taxi_dw.yellow_trips
+load_type: incremental          # load partition by partition, tracked by a watermark
+partition_column: dt
+cluster_by: [pulocationid, payment_type]
+numeric_columns: [fare_amount, total_amount, trip_distance]   # get SUM/MIN/MAX checks
