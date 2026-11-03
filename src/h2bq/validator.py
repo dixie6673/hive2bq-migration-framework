@@ -29,9 +29,9 @@ def run_dvt(c, cfg) -> None:
     results: list[dict] = []
 
     def add(check, detail, sv, tv, ok):
-        results.append(dict(run_id=run_id, run_ts=ts, table_name=cfg.name, check_name=check,
-                            detail=str(detail), source_value=str(sv), target_value=str(tv),
-                            status="PASS" if ok else "FAIL"))
+        results.append({"run_id": run_id, "run_ts": ts, "table_name": cfg.name, "check_name": check,
+                            "detail": str(detail), "source_value": str(sv), "target_value": str(tv),
+                            "status": "PASS" if ok else "FAIL"})
 
     # 1) row count, null counts, numeric aggregates
     parts = ["COUNT(*) AS row_count"]

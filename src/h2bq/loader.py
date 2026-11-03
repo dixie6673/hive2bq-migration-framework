@@ -63,7 +63,7 @@ def run_load(c, cfg, start: date | None = None, end: date | None = None) -> None
 
     # a manual repair of an old partition must not move the watermark backwards
     new_wm = max(dates) if wm is None else max(wm, max(dates))
-    total = list(c.query(f"SELECT COUNT(*) AS n FROM `{fq(c, cfg.target)}`").result())[0].n
+    total = next(iter(c.query(f"SELECT COUNT(*) AS n FROM `{fq(c, cfg.target)}`").result())).n
     append_rows(c, "load_watermark", [{
         "table_name": cfg.name, "last_loaded_dt": new_wm.isoformat(),
         "rows_in_target": total,
